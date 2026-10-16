@@ -2,8 +2,6 @@
 
 A **mobile web automation framework** that drives the public [Vendure Remix Storefront](https://storefront.demo.vendure.io/) on a real iOS Simulator and Android Emulator — no native-app code, just Safari and Chrome running inside XCUITest and UiAutomator2.
 
-The project is the mobile-web companion to the desktop [Playwright + TypeScript suite](../ecommerce-vendure-playwright-typescript). It uses the same Vendure seed data, the same user journeys, and a near-identical Page Object Model — adapted for Appium 2's element selectors, mobile Safari / Chrome quirks, and touch-driven interactions.
-
 ```
 TypeScript + WebdriverIO 9 + Appium 2 + Mocha + expect-webdriverio + Allure
                                           │
@@ -17,17 +15,6 @@ TypeScript + WebdriverIO 9 + Appium 2 + Mocha + expect-webdriverio + Allure
                                        │
                               tests/*.spec.ts
 ```
-
-## Why a separate mobile-web framework?
-
-The Playwright suite covers desktop Chrome only. Mobile-web testing has different failure modes:
-
-- **iOS Safari** re-renders the storefront with its own cookie/storage semantics.
-- **Chrome on Android** treats the responsive layout as a touch interface — buttons render at different sizes, the navigation collapses into a hamburger.
-- **Appium 2** exposes the browser through XCUITest / UiAutomator2, so every locator must be touch-safe (no `hover`, no `page.evaluate`, no shadow DOM piercing).
-- **Cookies, local storage, and HTTP semantics** differ on mobile-web, so the same flow can pass on desktop and fail on iOS.
-
-This project exercises the Vendure storefront under both of those conditions with a single test suite.
 
 ## Stack
 
