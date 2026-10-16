@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Build artifacts
+dist/
+.tsbuildinfo
+
+# Test results
+allure-results/*
+allure-report/
+screenshots/*
+*.log
+wdio-logs/
+
+# Keep these folders tracked even when empty
+!allure-results/.gitkeep
+!screenshots/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Local config overrides
+*.local
+.env
+.env.local
